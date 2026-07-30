@@ -1,5 +1,7 @@
 # Best of JavaScript
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Web Reactions](https://api.webreactions.app/badge/github/khasky/best-of-javascript.svg)](https://webreactions.app/?utm_source=github&utm_channel=repository&utm_medium=best-of-javascript)
+
 Hand-picked **JavaScript** and **TypeScript** tools that help developers build better production-ready applications.
 
 > *If I were building, shipping, or maintaining a serious JS/TS product today — what tools are actually worth my attention?*
