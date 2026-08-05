@@ -220,6 +220,12 @@ These all work naturally in VS Code, and the same extension ecosystem is one of 
 | [npm](https://www.npmjs.com/) | The universal baseline that works everywhere. | ![GitHub Repo stars](https://img.shields.io/github/stars/npm/cli?style=flat-square&logo=github&label=stars) ![npm downloads](https://img.shields.io/npm/dw/npm?style=flat-square&logo=npm&label=npm%2Fweek) |
 | [Bun Package Manager](https://bun.com/docs/pm/cli/install) | Worth trying when you want one binary for install, scripts, and runtime. | — |
 
+**Two registry facts worth carrying into any install decision.**
+
+*Packages used to be able to vanish.* In March 2016 the author of `left-pad` — eleven lines of code — unpublished it after a naming dispute, and builds broke across the ecosystem because so much tooling depended on it transitively. npm's current policy is the direct consequence: unpublish is allowed within **72 hours** of publishing and only while nothing else depends on the package; after that the option is `deprecate`, which leaves the code installable.
+
+*Installing runs code.* `npm install` executes `preinstall`/`install`/`postinstall` scripts from your dependencies with your user's permissions — the mechanism behind most of the ecosystem's compromises, including `event-stream` in 2018, where a package changed maintainer and the new one added a payload. `npm ci --ignore-scripts` in CI is the cheap mitigation; pnpm restricts build scripts to approved packages by default. Where a dependency genuinely needs its install script, allow that one rather than the whole tree.
+
 ### Version management
 
 | Tool | Why it matters | Signals |
